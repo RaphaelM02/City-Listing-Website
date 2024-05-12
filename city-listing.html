@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Touristic Guide</title>
+  <style>
+    /* Basic Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    /* Navigation Styles */
+    nav {
+      background-color: #666;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px;
+    }
+
+    nav ul li a:hover {
+      background-color: #999;
+    }
+
+    /* Cities Section Styles */
+    #cities {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .city {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      width: 300px;
+    }
+
+    .city h3 {
+      margin-top: 0;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .city p {
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    .city img {
+      width: 100%;
+      height: auto;
+      margin-top: 10px;
+    }
+
+    /* Add City Form Styles */
+    #add-city-form {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      width: 300px;
+    }
+
+    #add-city-form h2 {
+      margin-top: 0;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #add-city-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    #add-city-form input[type="text"],
+    #add-city-form input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    #add-city-form button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    /* Remove City Section Styles */
+    #remove-city {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      width: 300px;
+    }
+
+    #remove-city h2 {
+      margin-top: 0;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #remove-city label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    #remove-city select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    #remove-city button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    /* Search/Filter Section Styles */
+    #search-filter {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      width: 300px;
+    }
+
+    #search-filter h2 {
+      margin-top: 0;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #search-filter input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    #search-filter button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    /* Contact Us Section Styles */
+    #contact-us {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      width: 300px;
+    }
+
+    #contact-us h2 {
+      margin-top: 0;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #contact-us label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    #contact-us input[type="text"],
+    #contact-us textarea {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    #contact-us button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    /* Login Page Styles */
+    #login-form {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+      padding: 20px;
+      width: 300px;
+    }
+
+    #login-form h2 {
+      margin-top: 0;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #login-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    #login-form input[type="text"],
+    #login-form input[type="password"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    #login-form button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    /* User Rating Section Styles */
+    #user-rating {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      width: 300px;
+    }
+
+    #user-rating h2 {
+      margin-top: 0;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #user-rating label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    #user-rating input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    #user-rating button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Touristic Guide</h1>
+    <p>Welcome to our touristic guide website.</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#cities" id="cities-href" style="display: none;">Cities</a></li>
+      <li><a href="#add-city-form" id="add-city-href" style="display: none;">Add City</a></li>
+      <li><a href="#remove-city" id="remove-city-href" style="display: none;">Remove City</a></li>
+      <li><a href="#search-filter" id="search-filter-href" style="display: none;">Search/Filter</a></li>
+      <li><a href="#contact-us" id="contact-us-href" style="display: none;">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <section id="login-form">
+    <h2>Login</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button id="submit-login">Login</button>
+  </section>
+
+  <section id="cities" style="display: none;">
+    <!-- Cities will be displayed here using JavaScript -->
+  </section>
+
+  <section id="add-city-form" style="display: none;">
+    <h2>Add City</h2>
+    <form id="city-form">
+        <label for="city-name">City Name:</label>
+        <input type="text" id="city-name" required>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" required>
+
+        <label for="population">Population:</label>
+        <input type="number" id="population" required>
+
+        <label for="places-to-visit">Places to Visit:</label>
+        <input type="text" id="places-to-visit" required>
+
+        <label for="image-url">Image URL:</label>
+        <input type="text" id="image-url" required>
+
+        <button type="submit">Add</button>
+    </form>
+  </section>
+
+  <section id="remove-city" style="display: none;">
+    <h2>Remove City</h2>
+    <label for="city-select">Select City:</label>
+    <select id="city-select">
+        <!-- Cities will be populated using JavaScript -->
+    </select>
+    <button id="remove-button">Remove</button>
+  </section>
+
+  <section id="search-filter" style="display: none;">
+    <h2>Search/Filter</h2>
+    <input type="text" id="search-bar" placeholder="Search">
+    <label for="country-filter">Filter by Country:</label>
+    <select id="country-filter">
+    </select>
+  </section>
+
+  <section id="images" style="display: none;">
+    <!-- Images will be displayed here using JavaScript -->
+  </section>
+
+  <section id="contact-us" style="display: none;">
+    <h2>Contact Us</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button id="submit-contact-us">Submit</button>
+  </section>
+
+  <section id="user-rating" style="display: none;">
+    <h2>User Rating</h2>
+    <label for="rating">Rating (1-5):</label>
+    <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+    <button id="submit-rating">Submit Rating</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Touristic Guide. All rights reserved.</p>
+  </footer>
+  <script src="login.js"></script>
+</body>
+</html>
